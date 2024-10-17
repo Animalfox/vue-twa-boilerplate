@@ -1,12 +1,12 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { createApp } from 'vue'
 import App from './App.vue'
 
 // Mock the createApp function
 vi.mock('vue', () => ({
   createApp: vi.fn(() => ({
-    mount: vi.fn(),
-  })),
+    mount: vi.fn()
+  }))
 }))
 
 describe('main.ts', () => {

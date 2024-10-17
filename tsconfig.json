@@ -1,7 +1,56 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "strict": true,
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "types": ["vite/client", "vitest/globals", "node"],
+    "baseUrl": "./",
+    "paths": {
+      // Sort this paths by using autocomplete priority!
+      // From presentation to domain flow & root folder at last
+      // Don't add your libs folders in this flow!
+      "@ploc/*": ["./src/@clean/web/ploc*"],
+      "@web/*": ["./src/@clean/web/*"],
+      "@persistence/*": ["./src/@clean/data/persistence/*"],
+      "@infrastructure/*": ["./src/@clean/data/infrastructure/*"],
+      "@data/*": ["./src/@clean/data/*"],
+      "@domain/*": ["./src/@clean/core/domain/*"],
+      "@application/*": ["./src/@clean/core/application/*"],
+      "@core/*": ["./src/@clean/core/*"],
+      "@clean/*": ["./src/@clean/*"],
+      "@/*": ["./src/*"],
+      "@images/*": ["./src/assets/images/*"],
+      "@styles/*": ["./src/assets/styles/*"]
+    }
+  },
+  "include": [
+    "./typed-router.d.ts",
+    "./vite.config.*",
+    "./env.d.ts",
+    "./shims.d.ts",
+    "./src/**/*",
+    "./src/**/*.vue",
+    "./themeConfig.ts",
+    "./auto-imports.d.ts",
+    "./components.d.ts"
   ],
+  "exclude": ["./dist", "./node_modules"]
 }
