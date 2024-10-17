@@ -1,5 +1,6 @@
 {
   "editor.formatOnSave": true,
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "always"
   },

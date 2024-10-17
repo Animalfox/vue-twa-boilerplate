@@ -4,6 +4,10 @@
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "stylelint.vscode-stylelint",
-    "vue.volar"
+    "vue.volar",
+    "tabnine.tabnine-vscode",
+    "sonarsource.sonarlint-vscode",
+    "unional.vscode-sort-package-json",
+    "mike-co.import-sorter"
   ]
 }
