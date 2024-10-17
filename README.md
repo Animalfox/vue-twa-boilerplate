@@ -1,4 +1,4 @@
-# Vite TWA Boilerplate
+# Vue TWA Boilerplate
 
 A boilerplate for building Telegram Web Applications (TWAs) using Telegram Web
 API with the latest technologies like TypeScript, Vite, Vue, ESLint, Prettier,
