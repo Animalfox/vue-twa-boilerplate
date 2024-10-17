@@ -1,4 +1,4 @@
-import { UniqueEntityID } from './UniqueEntityID'
+import UniqueEntityID from './UniqueEntityID'
 
 const isEntity = (v: any): v is Entity<any> => {
   return v instanceof Entity

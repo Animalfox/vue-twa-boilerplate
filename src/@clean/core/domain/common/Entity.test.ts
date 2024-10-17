@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { Entity } from './Entity'
-import { UniqueEntityID } from './UniqueEntityID'
+import UniqueEntityID from './UniqueEntityID'
 
 class TestEntity extends Entity<{ value: string; }> {
   // abstract constructor is hidden by no-useless-constructor definition
