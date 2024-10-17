@@ -20,9 +20,10 @@ and more.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/vite-twa-boilerplate.git
+   git clone https://github.com/Animalfox/vite-twa-boilerplate.git
    cd vite-twa-boilerplate
    ```
+
 2. Install the dependencies:
    ```bash
    npm install
