@@ -1,9 +1,21 @@
 {
+
+  // Disable ide formating because we use the eslint.format
   "editor.formatOnSave": false,
+
+  // Disable inserting semicolons by 3rd party plugins
+  "javascript.format.semicolons": "remove",
+  "typescript.format.semicolons": "remove",
+
+  // Enable import sorting by importSorter
   "importSorter.generalConfiguration.sortOnBeforeSave": true,
+
+  // Enable code actions on save to automatically fix errors and warnings
   "editor.codeActionsOnSave": {
     "source.fixAll": "always"
   },
+
+  // Set up prettier for markdown files
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.unicodeHighlight.ambiguousCharacters": false,
