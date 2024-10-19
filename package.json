@@ -33,6 +33,7 @@
     "@stylistic/stylelint-plugin": "^3.0.1",
     "@testing-library/vue": "^8.1.0",
     "@types/node": "^22.7.6",
+    "@types/telegram-web-app": "^7.10.1",
     "@types/uuid": "^10.0.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitest/coverage-v8": "^2.1.3",
