@@ -1,6 +1,5 @@
 {
-
-  // Disable ide formating because we use the eslint.format
+  // Disable ide formatting because we use the eslint.format
   "editor.formatOnSave": false,
 
   // Disable inserting semicolons by 3rd party plugins

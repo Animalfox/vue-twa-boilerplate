@@ -3,11 +3,11 @@
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
-    "stylelint.vscode-stylelint",
-    "vue.volar",
-    "tabnine.tabnine-vscode",
+    "mike-co.import-sorter",
     "sonarsource.sonarlint-vscode",
+    "stylelint.vscode-stylelint",
+    "tabnine.tabnine-vscode",
     "unional.vscode-sort-package-json",
-    "mike-co.import-sorter"
+    "vue.volar"
   ]
 }
