@@ -1,3 +1,5 @@
-export default interface UseCase<IRequest, IResponse> {
-  execute(request?: IRequest): Promise<IResponse> | IResponse
+import type { Result } from './Result'
+
+export interface UseCase<IRequest, IResponse> {
+  execute(request?: IRequest): Promise<Result<IResponse, Error>>
 }
