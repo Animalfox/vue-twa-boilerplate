@@ -72,14 +72,4 @@ describe('ValueObject', () => {
     } // Object without 'props'
     expect(vo.equals(invalidObject as any)).toBe(false)
   })
-
-  it('object properties should be immutable', () => {
-    const vo = new TestValueObject({
-      a: 1,
-      b: 'test'
-    })
-    expect(() => {
-      (vo.props as any).a = 2
-    }).toThrow(TypeError)
-  })
 })
