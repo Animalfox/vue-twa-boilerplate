@@ -6,6 +6,7 @@ export abstract class ValueObject<T extends ValueObjectProps> {
   protected readonly props: T
 
   constructor (props: T) {
+    this.validateProps(props)
     this.props = Object.freeze(props)
   }
 
@@ -18,6 +19,8 @@ export abstract class ValueObject<T extends ValueObjectProps> {
     }
     return this.compareProps(this.props, vo.props)
   }
+
+  protected abstract validateProps(props: T): void
 
   private compareProps(propsA: T, propsB: T): boolean {
     const keysA = Object.keys(propsA)
