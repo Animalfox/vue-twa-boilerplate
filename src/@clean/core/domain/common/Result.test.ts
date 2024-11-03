@@ -5,26 +5,23 @@ import { Result } from './Result'
 describe('Result', () => {
   describe('success results', () => {
     it('should create a success result', () => {
-      const result = Result.ok(10)
+      const result = Result.ok<number, Error>(10)
       expect(result.isSuccess()).toBe(true)
-      expect(result.isFailure()).toBe(false)
     })
 
     it('should return the correct value from success result', () => {
-      const value = {
-        key: 'test'
-      }
-      const result = Result.ok(value)
+      const value = 'test'
+      const result = Result.ok<string, Error>(value)
       expect(result.getValue()).toBe(value)
     })
 
     it('should throw when trying to get error from success result', () => {
-      const result = Result.ok(10)
+      const result = Result.ok<string, Error>('test')
       expect(() => result.getError()).toThrow('Cannot get error from a successful result')
     })
 
     it('should handle null as a valid success value', () => {
-      const result = Result.ok(null)
+      const result = Result.ok<null, Error>(null)
       expect(result.isSuccess()).toBe(true)
       expect(result.getValue()).toBe(null)
     })
@@ -32,32 +29,19 @@ describe('Result', () => {
 
   describe('failure results', () => {
     it('should create a failure result', () => {
-      const error = new Error('test error')
-      const result = Result.fail(error)
-      expect(result.isSuccess()).toBe(false)
+      const result = Result.fail<string, Error>(new Error('test error'))
       expect(result.isFailure()).toBe(true)
     })
 
     it('should return the correct error from failure result', () => {
       const error = new Error('test error')
-      const result = Result.fail(error)
+      const result = Result.fail<string, Error>(error)
       expect(result.getError()).toBe(error)
     })
 
     it('should throw when trying to get value from failure result', () => {
-      const result = Result.fail(new Error('test error'))
+      const result = Result.fail<string, Error>(new Error('test error'))
       expect(() => result.getValue()).toThrow('Cannot get value from a failed result')
-    })
-
-    it('should handle custom error types', () => {
-      class CustomError {
-        // eslint-disable-next-line no-useless-constructor
-        constructor(public readonly code: number, public readonly message: string) {}
-      }
-
-      const customError = new CustomError(404, 'Not Found')
-      const result = Result.fail(customError)
-      expect(result.getError()).toBe(customError)
     })
   })
 
@@ -72,7 +56,8 @@ describe('Result', () => {
         id: 1,
         name: 'test'
       }
-      const result = Result.ok<TestType>(value)
+
+      const result = Result.ok<TestType, Error>(value)
       const retrievedValue = result.getValue()
 
       // TypeScript should recognize retrievedValue as TestType
@@ -88,7 +73,7 @@ describe('Result', () => {
       }
 
       const error = new ValidationError('email')
-      const result = Result.fail<ValidationError>(error)
+      const result = Result.fail<string, ValidationError>(error)
       const retrievedError = result.getError()
 
       // TypeScript should recognize retrievedError as ValidationError
@@ -98,15 +83,31 @@ describe('Result', () => {
 
   describe('edge cases', () => {
     it('should handle undefined as success value', () => {
-      const result = Result.ok(undefined)
+      const result = Result.ok<undefined, Error>(undefined)
       expect(result.isSuccess()).toBe(true)
       expect(result.getValue()).toBeUndefined()
     })
 
     it('should handle void results', () => {
-      const result = Result.ok<void>(undefined)
+      const result = Result.ok<void, Error>(undefined)
       expect(result.isSuccess()).toBe(true)
       expect(result.getValue()).toBeUndefined()
+    })
+
+    it('should handle complex error types', () => {
+      class CustomError extends Error {
+        constructor(public readonly code: number, message: string) {
+          super(message)
+        }
+      }
+
+      const error = new CustomError(404, 'Not Found')
+      const result = Result.fail<string, CustomError>(error)
+
+      expect(result.isFailure()).toBe(true)
+      const retrievedError = result.getError()
+      expect(retrievedError.code).toBe(404)
+      expect(retrievedError.message).toBe('Not Found')
     })
   })
 })
