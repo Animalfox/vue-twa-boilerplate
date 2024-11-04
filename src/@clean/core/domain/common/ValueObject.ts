@@ -1,3 +1,5 @@
+import type { Result } from './Result'
+
 interface ValueObjectProps {
   [index: string]: any
 }
@@ -6,7 +8,10 @@ export abstract class ValueObject<T extends ValueObjectProps> {
   protected readonly props: T
 
   constructor (props: T) {
-    this.validateProps(props)
+    const validationResult = this.validateProps(props)
+    if (validationResult.isFailure()) {
+      throw validationResult.getError()
+    }
     this.props = Object.freeze(props)
   }
 
@@ -20,7 +25,7 @@ export abstract class ValueObject<T extends ValueObjectProps> {
     return this.compareProps(this.props, vo.props)
   }
 
-  protected abstract validateProps(props: T): void
+  protected abstract validateProps(props: T): Result<void, Error>
 
   private compareProps(propsA: T, propsB: T): boolean {
     const keysA = Object.keys(propsA)

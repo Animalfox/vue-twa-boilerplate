@@ -1,19 +1,28 @@
+import { Result } from './Result'
+
 export class Identifier<T> {
   constructor(private readonly value: T) {
     this.value = value
   }
 
-  equals(id?: Identifier<T>): boolean {
+  public static create<T>(value: T): Result<Identifier<T>, Error> {
+    if (value === undefined || value === null) {
+      return Result.fail(new Error('Identifier value cannot be null or undefined'))
+    }
+    return Result.ok(new Identifier(value))
+  }
+
+  equals(id?: any): boolean {
     if (id === null || id === undefined) {
       return false
     }
-    if (!(id instanceof this.constructor)) {
+    if (!(id instanceof Identifier)) {
       return false
     }
-    return id.toValue() === this.value
+    return this.value === id.value
   }
 
-  toString() {
+  toString(): string {
     return String(this.value)
   }
 
