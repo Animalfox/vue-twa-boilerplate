@@ -20,8 +20,8 @@ and more.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Animalfox/vite-twa-boilerplate.git
-   cd vite-twa-boilerplate
+   git clone https://github.com/Animalfox/vue-twa-boilerplate.git
+   cd vue-twa-boilerplate
    ```
 
 2. Install the dependencies:
