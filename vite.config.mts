@@ -1,11 +1,12 @@
 /// <reference types="vitest" />
 
 import { fileURLToPath } from 'node:url'
-import { defineConfig } from 'vite'
-import { configDefaults } from 'vitest/config'
-import vue from '@vitejs/plugin-vue'
-import VueDevTools from 'vite-plugin-vue-devtools'
 import AutoImport from 'unplugin-auto-import/vite'
+import { defineConfig } from 'vite'
+import VueDevTools from 'vite-plugin-vue-devtools'
+import { configDefaults } from 'vitest/config'
+
+import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -52,16 +53,14 @@ export default defineConfig({
       ),
       // @clean/data
       '@data': fileURLToPath(new URL('./src/@clean/data', import.meta.url)),
-      // @clean/core/domain
+      // @clean/domain
       '@domain': fileURLToPath(
-        new URL('./src/@clean/core/domain', import.meta.url)
+        new URL('./src/@clean/domain', import.meta.url)
       ),
-      // @clean/core/application
+      // @clean/application
       '@application': fileURLToPath(
-        new URL('./src/@clean/core/application', import.meta.url)
+        new URL('./src/@clean/application', import.meta.url)
       ),
-      // @clean/core
-      '@core': fileURLToPath(new URL('./src/@clean/core', import.meta.url)),
       // @clean
       '@clean': fileURLToPath(new URL('./src/@clean', import.meta.url)),
       // Vue Defaults

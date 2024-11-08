@@ -53,7 +53,6 @@ describe('Specification', () => {
     })
   })
 
-  // Новые тесты для методов базового класса
   describe('base class methods', () => {
     let priceSpec: PriceSpecification
     let stockSpec: InStockSpecification
@@ -117,19 +116,8 @@ describe('Specification', () => {
       })
     })
 
-    // Тест для проверки сложных цепочек методов
     describe('method chaining', () => {
       it('should support complex chaining of specifications', () => {
-
-        /**
-         * Test: Имплементация тестовой бизнес логики
-         * sql: (price <= maxPrice AND inStock) OR (NOT inStock)
-         *
-         * Такая комбинация может быть полезна, например, когда нужно показать
-         * товары, которые:
-         * - Можно купить прямо сейчас (подходят по цене и есть в наличии)
-         * - Или можно предзаказать (нет в наличии)
-         */
         const complexSpec = priceSpec
           .and(stockSpec)
           .or(stockSpec.not())

@@ -1,5 +1,3 @@
-// src/@clean/core/domain/common/ValueObject.test.ts
-
 import { describe, expect, it } from 'vitest'
 
 import { Result } from './Result'
