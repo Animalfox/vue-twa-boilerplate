@@ -7,6 +7,7 @@
   "typescript.format.semicolons": "remove",
 
   // Enable import sorting by importSorter
+  "importSorter.importStringConfiguration.hasSemicolon": false,
   "importSorter.generalConfiguration.sortOnBeforeSave": true,
 
   // Enable code actions on save to automatically fix errors and warnings
